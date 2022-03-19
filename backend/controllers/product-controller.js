@@ -51,7 +51,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
 	const product = await Product.findById(req.params.id);
 
 	if (product) {
-		await product.remove();
+		await product.deleteOne();
 		res.json({ message: 'Product removed' });
 	} else {
 		res.status(404);
@@ -83,15 +83,8 @@ const createProduct = asyncHandler(async (req, res) => {
 // @route           PUT /api/products/:id
 // @access          Private/Admin
 const updateProduct = asyncHandler(async (req, res) => {
-	const {
-		name,
-		price,
-		description,
-		image,
-		brand,
-		category,
-		countInStock,
-	} = req.body;
+	const { name, price, description, image, brand, category, countInStock } =
+		req.body;
 
 	const product = await Product.findById(req.params.id);
 
