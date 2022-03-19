@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const connectDb = async () => {
 	try {
-		const conn = await mongoose.connect('103.240.204.43/32', {
+		const conn = await mongoose.connect('mongodb://103.240.204.43/32', {
 			useUnifiedTopology: true,
 			useNewUrlParser: true,
 			useCreateIndex: true,
